@@ -25,10 +25,10 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname,'public')));
 
-// body parser Middle ware
+// body parser Middle ware.
 app.use(bodyParser.json());
 
-//passport Middle ware
+//passport Middle ware.
 app.use(passport.initialize());
 app.use(passport.session());
 
