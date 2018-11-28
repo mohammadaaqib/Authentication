@@ -14,7 +14,7 @@ router.post('/regester',(req,res,next)=>{
         username:req.body.username,
         password:req.body.password
     });
-
+console.log(user)
     user.addUser(newUser,(err,user)=>{
 
         if(err){

@@ -23,7 +23,7 @@ const port =3000;
 
 app.use(cors());
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'client')));
 
 // body parser Middle ware.
 app.use(bodyParser.json());
