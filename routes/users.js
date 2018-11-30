@@ -12,7 +12,9 @@ router.post('/regester',(req,res,next)=>{
         name:req.body.name,
         email:req.body.email,
         username:req.body.username,
-        password:req.body.password
+        password:req.body.password,
+        contact:req.body.contact,
+        profilePic:req.body.imageUrl
     });
     user.addUser(newUser,(err,user)=>{
 
@@ -67,6 +69,7 @@ user.comparePassword(password,User.password,(err,isMatch)=>{
 
     //Profile 
 router.get('/profile',passport.authenticate('jwt', {session:false}),(req,res,next)=>{
+
     res.json({user:req.user})
     });
 
