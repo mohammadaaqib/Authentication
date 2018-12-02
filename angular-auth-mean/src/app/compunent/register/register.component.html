@@ -1,3 +1,40 @@
-<p>
-  register works!
-</p>
+<div class="container-fluid">
+<h2 class="page-header">Register</h2>
+<form (submit)="onRegisterSubmit()" >
+    <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Name</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+        [(ngModel)]="register.name" name="register.name" >
+    </div>
+
+      <div class="input-group input-group-lg mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">User Name</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+          [(ngModel)]="register.username" name="register.username" >
+      </div>
+
+      <div class="input-group input-group-lg mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+            [(ngModel)]="register.email" name="register.email" >
+      </div>
+
+      <div class="input-group input-group-lg mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+              </div>
+              <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+              [(ngModel)]="register.password" name="register.password" >
+        </div>
+
+  <input class="btn btn-primary" type="submit"  value="submit">
+  <input class="btn btn-secondary float-right" type="reset" value="Reset">
+  
+</form>
+</div>
