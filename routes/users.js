@@ -8,6 +8,7 @@ const config =require('../config/database')
 
 //Regester 
 router.post('/regester',(req,res,next)=>{
+    console.log('in regester')
     let newUser =new user({
         name:req.body.name,
         email:req.body.email,
@@ -30,6 +31,7 @@ router.post('/regester',(req,res,next)=>{
 
 //Authenticate 
 router.post('/authenticate',(req,res,next)=>{
+    console.log('in login')
  const username =req.body.username;
  const password =req.body.password;
 

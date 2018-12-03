@@ -1,3 +1,23 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid">
+  <h2 class="page-header">Login</h2>
+  <form (submit)="onLoginSubmit()" >
+      <div class="input-group input-group-lg mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">User Name</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+          [(ngModel)]="login.username" name="login.username" >
+      </div>
+  
+        <div class="input-group input-group-lg mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+                </div>
+                <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+                [(ngModel)]="login.password" name="login.password" >
+          </div>
+  
+    <input class="btn btn-primary" type="submit"  value="submit">
+    
+  </form>
+  </div> 
