@@ -5,6 +5,7 @@ const cors =require('cors');
 const passport =require('passport');
 const mongoose =require('mongoose');
 const config=require('./config/database');
+const morgan=require('morgan')
 
 mongoose.connect(config.database,{ useNewUrlParser: true });
 
@@ -20,7 +21,7 @@ const app=express();
 const users=require ('./routes/users');
 const port =3000;
 
-
+app.use(morgan('dev'));
 app.use(cors());
 
 app.use(express.static(path.join(__dirname,'client')));
