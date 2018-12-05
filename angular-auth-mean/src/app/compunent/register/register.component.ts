@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
       return false
     }
 this.authService.regesterUser(this.register).subscribe((responseData)=>{
-  console.log(responseData);
   if(responseData.success){
 this.route.navigate(['/login'])
   }

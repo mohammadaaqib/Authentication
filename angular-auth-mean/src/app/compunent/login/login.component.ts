@@ -20,8 +20,10 @@ login={
   
     this.authService.loginUser(this.login).subscribe((response)=>{
 if(response.success){
-  console.log(response)
+  this.authService.storeUser(response.token,response.user)
 this.route.navigate(['/dashboard'])
+}else{
+  this.route.navigate(['/login'])
 }
 
     })
