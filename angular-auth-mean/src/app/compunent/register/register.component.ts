@@ -1,7 +1,8 @@
 import { AuthService } from './../../services/auth.service';
 import { ValidationService } from './../../services/validation.service';
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router'
+ 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
     email:'',
     password:''
   }
-  constructor(private validate: ValidationService,private authService:AuthService) { }
+  constructor(private validate: ValidationService,private authService:AuthService,private route:Router) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,9 @@ export class RegisterComponent implements OnInit {
     }
 this.authService.regesterUser(this.register).subscribe((responseData)=>{
   console.log(responseData);
+  if(responseData.success){
+this.route.navigate(['/login'])
+  }
 })
   }
 

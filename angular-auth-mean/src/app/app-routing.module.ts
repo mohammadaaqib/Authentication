@@ -15,10 +15,12 @@ component:RegisterComponent
 },{
 path:'login',
 component:LoginComponent
-},{
+},
+{
   path:'dashboard',
   component:DashboardComponent
-  },{
+  },
+  {
     path:'profile',
     component:ProfileComponent
     }];
