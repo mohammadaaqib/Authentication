@@ -32,10 +32,15 @@ export class AuthService {
   }
   getProfile(){
     this.getToken();
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-     headers.append('Authorization','jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVjMDdmYzcwOWVmZWRmYjZiNGY0N2YxOCIsIm5hbWUiOiJhcWliIGphdmVkIiwiZW1haWwiOiJhcWliamF2ZWRAZ21pYWwuY29tIiwidXNlcm5hbWUiOiJhcWliIGphdmVkIiwicGFzc3dvcmQiOiIkMmEkMTAkTDdFQXRPc003emdveWg0SG5YTmVFT21PTDJMbUV0Rk9SMWh4WG9UeTFhdkxNbFFqL3hneEciLCJfX3YiOjB9LCJpYXQiOjE1NDQwMzE4NTUsImV4cCI6MTU0NDYzNjY1NX0.AYqmvrmsforggR1Bi0DmWDMcT1Ouz5AzrvJJJl3UhwE')
-    return this.http.get(GET_PROFILE,{ headers: headers });
+    // let headers = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    //  headers.append('Authorization','jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVjMDdmYzcwOWVmZWRmYjZiNGY0N2YxOCIsIm5hbWUiOiJhcWliIGphdmVkIiwiZW1haWwiOiJhcWliamF2ZWRAZ21pYWwuY29tIiwidXNlcm5hbWUiOiJhcWliIGphdmVkIiwicGFzc3dvcmQiOiIkMmEkMTAkTDdFQXRPc003emdveWg0SG5YTmVFT21PTDJMbUV0Rk9SMWh4WG9UeTFhdkxNbFFqL3hneEciLCJfX3YiOjB9LCJpYXQiOjE1NDQwMzE4NTUsImV4cCI6MTU0NDYzNjY1NX0.AYqmvrmsforggR1Bi0DmWDMcT1Ouz5AzrvJJJl3UhwE')
+   
+     const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': this.authToken
+    });
+      return this.http.get(GET_PROFILE,{ headers: headers });
   }
   getToken() {
     this.authToken=localStorage.getItem('id_token');

@@ -15,7 +15,6 @@ user:object
     this.authservice.getProfile().subscribe((response)=>{
 this.user=response;   
     },err=>{
-      console.log(err)
     })
   }
 
