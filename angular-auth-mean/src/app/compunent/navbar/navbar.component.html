@@ -7,19 +7,19 @@
       </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li  [routerLinkActive]="['active']" >
+          <li *ngIf="!authservice.isTokenExpired()"  [routerLinkActive]="['active']" >
               <a class="nav-link"   [routerLink]="['dashboard']" >dashboard </a>
             </li>
-            <li  [routerLinkActive]="['active']" >
-                <a class="nav-link"   [routerLink]="['profile']" >Login </a>
+            <li *ngIf="!authservice.isTokenExpired()"  [routerLinkActive]="['active']" >
+                <a class="nav-link"   [routerLink]="['profile']" >profile </a>
               </li>
-        <li  [routerLinkActive]="['active']" >
+        <li *ngIf="authservice.isTokenExpired()"  [routerLinkActive]="['active']" >
           <a class="nav-link"   [routerLink]="['login']" >Login </a>
         </li>
-        <li  [routerLinkActive]="['active']" >
+        <li *ngIf="authservice.isTokenExpired()"  [routerLinkActive]="['active']" >
           <a class="nav-link"   [routerLink]="['register']">Register </a>
         </li>
-        <li >
+        <li *ngIf="!authservice.isTokenExpired()" >
           <a class="nav-link"   (click)='onLogoutClick()' href="#">Log Out </a>
         </li>
       </ul>

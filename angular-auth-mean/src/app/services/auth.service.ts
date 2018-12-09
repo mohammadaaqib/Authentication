@@ -3,14 +3,19 @@ import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { REGISTER, LOGIN, GET_PROFILE } from '../shared/globals/api-endingPoint';
-import { Ilogin } from '../shared/interfaces/login'
+import { Ilogin } from '../shared/interfaces/login';
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   authToken: string;
   user: object;
-  constructor(private http: HttpClient) { }
+  helper
+  constructor(private http: HttpClient) {
+
+    this.helper = new JwtHelperService();
+   }
   regesterUser(user): Observable<IRegister> {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -44,6 +49,12 @@ export class AuthService {
   }
   getToken() {
     this.authToken=localStorage.getItem('id_token');
+  }
+
+  isTokenExpired(): boolean {
+    this.getToken();
+    const isExpired = this.helper.isTokenExpired(this.authToken);
+   return isExpired;
   }
   logout() {
     this.authToken = null;

@@ -5,6 +5,7 @@ import { RegisterComponent } from './compunent/register/register.component';
 import { LoginComponent } from './compunent/login/login.component';
 import { DashboardComponent } from './compunent/dashboard/dashboard.component';
 import { ProfileComponent } from './compunent/profile/profile.component';
+import { AuthGuard } from './auth-guard/auth-guard';
 
 const routes: Routes = [{
   path:'',
@@ -18,11 +19,13 @@ component:LoginComponent
 },
 {
   path:'dashboard',
-  component:DashboardComponent
+  component:DashboardComponent,
+  canActivate:[AuthGuard]
   },
   {
     path:'profile',
-    component:ProfileComponent
+    component:ProfileComponent,
+    canActivate:[AuthGuard]
     }];
 
 @NgModule({

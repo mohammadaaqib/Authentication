@@ -15,6 +15,7 @@ import { from } from 'rxjs';
 
 import { ValidationService } from './services/validation.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth-guard/auth-guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ValidationService,AuthService],
+  providers: [ValidationService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
