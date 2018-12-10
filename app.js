@@ -19,7 +19,7 @@ mongoose.connection.on('error',(err)=>{
 const app=express();
 
 const users=require ('./routes/users');
-const port =3000;
+const port =process.env||8080;
 
 app.use(morgan('dev'));
 app.use(cors());
